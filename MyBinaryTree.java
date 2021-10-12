@@ -1,9 +1,11 @@
+
+
+
 package com.bridgelabz;
 
 public class MyBinaryTree <K extends Comparable<K>> {
     BinaryNode<K> root;
 
-    
     public void add(int Key) {
         BinaryNode<K> newNode = new BinaryNode<K>(Key);
         if (root == null) {
@@ -21,9 +23,7 @@ public class MyBinaryTree <K extends Comparable<K>> {
                         parent.left = newNode;
                         return;
                     }
-                }
-
-                else {
+                } else {
                     current = current.right;
                     if (current == null) {
                         parent.right = newNode;
@@ -34,17 +34,33 @@ public class MyBinaryTree <K extends Comparable<K>> {
         }
     }
 
-    /*Print method
-    *If left node is not equal to null print left node
-    * Print root node
-    * If left node is not equal to null print right node
-     */
+    
     public void print(BinaryNode<K> node) {
-            if (node.left != null)
-                print(node.left);
-            System.out.print(node.key + " ");
-            if (node.right != null)
-                print(node.right);
+        if (node.left != null)
+            print(node.left);
+        System.out.print(node.key + " ");
+        if (node.right != null)
+            print(node.right);
 
-        }
     }
+
+    public BinaryNode<K> search(BinaryNode<K> root, int key) {
+        if (root == null || root.key == key)
+            return root;
+        if (root.key > key)
+            return search(root.left, key);
+        else
+            return search(root.right, key);
+    }
+
+    public boolean searchNode(int value) {
+        root = search(root, value);
+        if (root != null)
+            return true;
+        else
+            return false;
+    }
+}
+
+
+
