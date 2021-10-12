@@ -3,15 +3,7 @@ package com.bridgelabz;
 public class MyBinaryTree <K extends Comparable<K>> {
     BinaryNode<K> root;
 
-    /*Method to add keys
-    * Create New node
-    * If root equals to null then root will be new node
-    * Else current node will be root and parent will be null
-    * If key less than root assigning that to left side
-    * If current equals to null then left node will be new parent node for left subtree
-    * * If key greater than root assigning that to right side
-     * If current equals to null then right node will be new parent node for right subtree
-     */
+    
     public void add(int Key) {
         BinaryNode<K> newNode = new BinaryNode<K>(Key);
         if (root == null) {
@@ -56,4 +48,3 @@ public class MyBinaryTree <K extends Comparable<K>> {
 
         }
     }
-}
